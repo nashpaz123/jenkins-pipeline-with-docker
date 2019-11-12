@@ -25,8 +25,8 @@ sudo docker-compose ps
 
 Expected output
 
-               Name                               Command               State                 Ports               
-------------------------------------------------------------------------------------------------------------------
+   Name                                  Command                        State              Ports               
+---------------------------------------------------------------------------------------------------------------------
 jenkinspipelinewithdocker_jenkins_1     /bin/tini -- /usr/local/bi ...   Up      50000/tcp, 0.0.0.0:8080->8080/tcp 
 jenkinspipelinewithdocker_sonarqube_1   ./bin/run.sh                     Up      0.0.0.0:9000->9000/tcp            
 jenkinspipelinewithdocker_tomcat_1      /run.sh                          Up      0.0.0.0:10000->8080/tcp      
