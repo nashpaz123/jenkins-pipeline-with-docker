@@ -9,3 +9,66 @@ The application is a very simple online version of [Conway's 'game of life'](htt
 ## Running the acceptance tests
 
 The acceptance tests are written using Webdriver and [Thucydides](http://thucydides.info). They are designed to run against a running server. Run the jetty instance as described about, then, in another window, go to the gameoflife-acceptance-tests directory and run `mvn clean verify`. The test reports will be generated in the `target/site/thucydides` directory.
+
+To begin with the tutorial, 
+1. clone this repository on a docker enabled linux machine.
+
+git clone https://github.com/nashpaz123/jenkins-pipeline-with-docker.git
+
+2. Navigate to the directory "jenkins-pipeline-with-docker" and run the below docker command to setup Jenkins, Sonarqube and Tomcat containers.
+
+sudo docker-compose up -d
+
+3. To view all the running containers run the below command
+
+sudo docker-compose ps
+
+Expected output
+
+               Name                               Command               State                 Ports               
+------------------------------------------------------------------------------------------------------------------
+jenkinspipelinewithdocker_jenkins_1     /bin/tini -- /usr/local/bi ...   Up      50000/tcp, 0.0.0.0:8080->8080/tcp 
+jenkinspipelinewithdocker_sonarqube_1   ./bin/run.sh                     Up      0.0.0.0:9000->9000/tcp            
+jenkinspipelinewithdocker_tomcat_1      /run.sh                          Up      0.0.0.0:10000->8080/tcp      
+Configure the "Jenkins" instance
+
+4. Navigate to the below URL to connect to your Jenkins instance.
+http://localhost:8080
+
+5. Install Jenkins suggested plugins, create the Admin user.
+
+6. Go to Manage Jenkins → Manage plugins and Install the plugins "Deploy to container" and "Copy Artifact Plugin" from the "Available" which are required for the project. These plugins are used to copy the artifacts from the upstream job and deploy to the Tomcat server.
+
+7. Add label "jenkins" on the master server.  Go to Manage Jenkins → Manage Nodes and confligure the master node. We add the label as we restrict the stages to run on the agents with the label "jenkins" in the JenkinsFile.
+
+Setup Jenkins Project:
+1. Go to Jenkins and click on "New item". Enter the job name as  "GameofLife_pipeline". Select the "Multibranch Pipeline" as the Project type and click on "OK"
+
+2. Under Branch Sources, configure the Git repository. We will be using the repo "jenkins-pipeline-with-docker" which has already been created for the project.  Select "GIT" from the dropdown and 
+
+enter the project repository as: https://github.com/nashpaz123/jenkins-pipeline-with-docker.git
+
+3. Navigate  to jenkins and click on "New item" and create a job called "Tomcat deploy to Integration".  Select the "Freestyle project" as the item type and click on "OK". This is the Jenkins job to deploy the built artifact on the tomcat container.
+Please make sure the name of the job matches the one mentioned in the Jenkinsfile. Jenkinsfile is located in the repo https://github.com/nashpaz123/jenkins-pipeline-with-docker.git
+
+4. Configure the General section and select "This build is parameterized" and add the variable as below. Select "String Parameter" as the parameter type and enter the name of the parameter as "BRANCH_NAME" and the default value as develop. We specify the variable to copy the artifact from the correct branch.
+
+5. Configure  the build step of the project to copy the artifact from the upstream project. Enter the name of the artiffact to be copied as "gameoflife-web/target/gameoflife.war" 
+
+6. Add the post-build step tp deploy to the Tomcat container and save the changes. Add the admin credentials for Tomcat and select it from the dropdown. Enter the context path and the Tomcat URL as "http://tomcat:8080"
+
+7. After these jobs are created, you should see a build running on the master branch. If the build is not started automatically, you can manually click "Scan multipbranch pipeline Now".
+
+8. View Build Results
+Once the build is completed, you can navigate  to the URL "http://localhost:9000" to view the sonar scan results and browse the application using the URL : http://localhost:10000/gameoflife/
+
+In Jenkins, Stage View provides extended visualization of Pipeline build history on the index page of a flow project . This represents the stages which are configured in the Jenkins Pipeline.
+
+
+
+
+
+
+
+
+
