@@ -7,7 +7,7 @@ services:
     networks:
       - demo
   sonarqube:
-    image: "sonarqube"
+    image: "sonarqube:6.4"
     ports:
      - "9000:9000"
     networks:
