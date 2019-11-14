@@ -4,7 +4,7 @@ The project is a simple multi-module Maven project. To build the whole project, 
 
 ## Running the game
 
-The application is a very simple online version of [Conway's 'game of life'](http://en.wikipedia.org/wiki/Conway's_Game_of_Life). To see what the game does, run `mvn install` as described above, thengo to the gameoflife-web directory and run `mvn jetty:run`. The application will be running on http://localhost:9090.
+The application is a very simple online version of [Conway's 'game of life'](http://en.wikipedia.org/wiki/Conway's_Game_of_Life). To see what the game does, run `mvn install` as described above, then go to the gameoflife-web directory and run `mvn jetty:run`. The application will be running on http://localhost:10000/gameoflife/.
 
 ## Running the acceptance tests
 
