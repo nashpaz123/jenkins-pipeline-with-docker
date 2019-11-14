@@ -1,5 +1,8 @@
 pipeline {
     agent any 
+    options {
+        ansiColor('xterm')
+    }
     tools {
       maven 'apache-maven-3.3.9'
     }
@@ -27,6 +30,7 @@ pipeline {
         }
         
         stage ('Deploy to Integration') {
+            when { branch 'master' }
             agent {node{
                    label "jenkins"}
             }

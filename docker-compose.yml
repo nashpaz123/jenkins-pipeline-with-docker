@@ -4,10 +4,12 @@ services:
     image: "jenkins/jenkins:lts"
     ports:
      - "8080:8080"
+    volumes:
+      - "jenkins_home:/var/jenkins_home"
     networks:
       - demo
   sonarqube:
-    image: "sonarqube"
+    image: "sonarqube:6.4"
     ports:
      - "9000:9000"
     networks:
@@ -20,5 +22,8 @@ services:
       - TOMCAT_PASS=admin
     networks:
       - demo
-networks: 
+networks:
   demo:
+volumes:
+  jenkins_home:
+    driver: local
