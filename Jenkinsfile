@@ -27,6 +27,7 @@ pipeline {
         }
         
         stage ('Deploy to Integration') {
+            when { branch 'master' }
             agent {node{
                    label "jenkins"}
             }
