@@ -1,5 +1,8 @@
 pipeline {
     agent any 
+    options {
+        ansiColor('xterm')
+    }
     tools {
       maven 'apache-maven-3.3.1'
     }
