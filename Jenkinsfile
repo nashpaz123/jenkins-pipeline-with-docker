@@ -31,6 +31,7 @@ pipeline {
         
         stage ('Deploy to Integration') {
             when { branch 'master' }
+            input message: 'Shall we proceed? (Click "Proceed" to continue)'
             agent {node{
                    label "jenkins"}
             }
