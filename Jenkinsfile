@@ -31,11 +31,11 @@ pipeline {
         
         stage ('Deploy to Integration') {
             when { branch 'master' }
-            input message: 'Shall we proceed? (Click "Proceed" to continue)'
             agent {node{
                    label "jenkins"}
             }
             steps {
+                input message: 'Shall we deploy? (Click "Proceed" to continue)'
                 build job:'../Tomcat deploy to Integration' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
             }
         }
