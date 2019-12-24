@@ -84,8 +84,12 @@ https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/Jenkinsfi
 ## 4. Configure the General section
 In the General section select "This build is parameterized" and add the variable as below. Select "String Parameter" as the parameter type and enter the name of the parameter as "BRANCH_NAME" and the default value as develop . We specify the variable to copy the artifact from the correct branch.
 
+![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/general.png)
+
 ## 5. Configure the Build step
 In the Build section select 'Copy artifacts from another project', and set the project name: 'GameofLife_pipeline/${BRANCH_NAME}' , and Which Build to: 'Upstreab build that triggered this job' to copy the artifact from the upstream project. Enter the name of the Artifacts to be copied as: "gameoflife-web/target/gameoflife.war"
+
+![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/build.png)
 
 ## 6. Add 
 the post-build step 'Deploy war to container' tp deploy to the Tomcat container and save the changes.
