@@ -4,7 +4,7 @@ The project is a simple multi-module Maven project. To build the whole project, 
 
 ## Running the game
 
-The application is a very simple online version of [Conway's 'game of life'](http://en.wikipedia.org/wiki/Conway's_Game_of_Life). To see what the game does, run `mvn install` as described above, thengo to the gameoflife-web directory and run `mvn jetty:run`. The application will be running on http://localhost:9090.
+The application is a very simple online version of [Conway's 'game of life'](http://en.wikipedia.org/wiki/Conway's_Game_of_Life). To see what the game does, run `mvn install` as described above, thengo to the gameoflife-web directory and run `mvn jetty:run`. The application will be running on http://IP_ADDRESS:9090.
 
 ## Running the acceptance tests
 
@@ -34,7 +34,7 @@ e.g:
     
 Configure the "Jenkins" instance:
 ## 4. Navigate to the below URL to connect to your Jenkins instance.
-Open http://<ip address>:8080 in a browser.
+Open http://IP_ADDRESS:8080 in a browser.
 
 To get the initial admin password run:
 
@@ -80,6 +80,6 @@ the post-build step tp deploy to the Tomcat container and save the changes. Add 
 you should see a build running on the master branch. If the build is not started automatically, you can manually click "Scan multipbranch pipeline Now".
 
 ## 8. View Build Results
-Once the build is completed, you can navigate  to the URL "http://localhost:9000" to view the sonar scan results and browse the application using the URL : http://localhost:10000/gameoflife/
+Once the build is completed, you can navigate  to the URL "http://IP_ADDRESS:9000" to view the sonar scan results and browse the application using the URL : http://localhost:10000/gameoflife/
 
 In Jenkins, Stage View provides extended visualization of Pipeline build history on the index page of a flow project . This represents the stages which are configured in the Jenkins Pipeline.
