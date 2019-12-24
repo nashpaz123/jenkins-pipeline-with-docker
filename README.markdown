@@ -101,9 +101,11 @@ Add the admin credentials for Tomcat (press the 'add' button next to Credentials
 Enter the Tomcat URL as "http://tomcat:8080"
 
 ## 7. After these jobs are created, 
-you should see a build running on the master branch. If the build is not started automatically, you can manually click "Scan multipbranch pipeline Now".
+you should see a build running on the master branch of the "GameofLife_pipeline" job. If the build is not triggered automatically, you can manually click "Scan multipbranch pipeline Now".
 
 ## 8. View Build Results
 Once the build is completed, you can navigate  to the URL "http://IP_ADDRESS:9000" to view the sonar scan results and browse the application using the URL : http://IP_ADDRESS:10000/gameoflife/
 
-In Jenkins, Stage View provides extended visualization of Pipeline build history on the index page of a flow project . This represents the stages which are configured in the Jenkins Pipeline.
+In Jenkins, Stage View provides extended visualization of Pipeline build history on the index page of a flow project. This represents the stages that are configured in the Jenkins Pipeline.
+
+optional: install the Jenkins plugin Blue Ocean and view the various branch runs in the Blue Ocean view.
