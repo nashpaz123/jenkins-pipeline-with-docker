@@ -42,8 +42,8 @@ To get the initial admin password run:
 
 Install Jenkins suggested plugins, 
 
-(If you run into this issue: An error occurred during installation: No such plugin: cloudbees-folder ,
-restart by running:
+<sub>(If you run into this issue: An error occurred during installation: No such plugin: cloudbees-folder ,
+restart by running:</sub>
 
 <sub>sudo docker-compose down</sub>
 
