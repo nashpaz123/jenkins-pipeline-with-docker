@@ -65,9 +65,10 @@ label "jenkins" on the master server. Go to Manage Jenkins → Manage Nodes and 
 
 We add the label as we'll restrict the stages to run on the agents with the label "jenkins" in the Jenkinsfile.
 
-Setup Jenkins Project:
-## 1. Setup Jenkins Project:
-In the main Jenkins menu, click on "New item". Enter the job name as  "GameofLife_pipeline". Select the "Multibranch Pipeline" as the Project type and click on "OK"
+# Setup Jenkins Project:
+
+## 1. In the main Jenkins menu
+click on "New item". Enter the job name as "GameofLife_pipeline". Select the "Multibranch Pipeline" as the Project type and click on "OK"
 
 ## 2. Under
 Branch Sources, configure the Git repository. We will be using the repo "jenkins-pipeline-with-docker" which has already been created for the project.  Select "GIT" from the dropdown and 
