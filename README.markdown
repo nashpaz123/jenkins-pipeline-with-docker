@@ -61,7 +61,7 @@ create the Admin user, user: 'admin' , password 'admin'.
 On the top right of the screen, click Manage Jenkins → Manage plugins. From the "Available" tab ( or go to http://IP_ADDRESS:8080/pluginManager/available ), install the plugins "Deploy to container" and "Copy Artifact Plugin", they are required for the project. These plugins are used to copy the artifacts from the upstream job and deploy it to the Tomcat server.
 
 ## 7. Add 
-label "jenkins" on the master server. Go to Manage Jenkins → Manage Nodes and configure the master node (or go to http://IP_ADDRESS:8080/computer/(master)/configure ). in the 'Labels' field add the text: jenkins 
+label "jenkins" on the master server. Go to Manage Jenkins → Manage Nodes and configure the master node (or go to http://IP_ADDRESS:8080/computer/(master)/configure ). in the 'Labels' field add the text: jenkins , then save.
 
 We add the label as we'll restrict the stages to run on the agents with the label "jenkins" in the Jenkinsfile.
 
