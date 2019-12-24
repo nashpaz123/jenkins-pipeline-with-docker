@@ -100,6 +100,8 @@ Add the admin credentials for Tomcat (press the 'add' button next to Credentials
 
 Enter the Tomcat URL as "http://tomcat:8080"
 
+![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/post.png)
+
 ## 7. After these jobs are created, 
 you should see a build running on the master branch of the "GameofLife_pipeline" job. If the build is not triggered automatically, you can manually click "Scan multipbranch pipeline Now".
 
