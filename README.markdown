@@ -16,6 +16,13 @@ To begin ,
 git clone https://github.com/nashpaz123/jenkins-pipeline-with-docker.git
 
 ## 2. Navigate to the directory "jenkins-pipeline-with-docker" and run the below docker command to setup Jenkins, Sonarqube and Tomcat containers.
+Prerequisites: install docker-compose: https://docs.docker.com/compose/install/ 
+
+e.g:
+
+<sub>sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</sub>
+
+<sub>sudo chmod +x /usr/local/bin/docker-compose</sub>
 
 sudo docker-compose up -d
 
