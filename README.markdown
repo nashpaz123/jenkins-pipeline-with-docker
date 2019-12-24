@@ -24,6 +24,8 @@ e.g:
 
 <sub>sudo chmod +x /usr/local/bin/docker-compose</sub>
 
+cd jenkins-pipeline-with-docker/
+
 sudo docker-compose up -d
 
 ## 3. To view all the running containers run the below command
