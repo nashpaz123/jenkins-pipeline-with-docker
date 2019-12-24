@@ -13,7 +13,7 @@ The acceptance tests are written using Webdriver and [Thucydides](http://thucydi
 To begin , 
 ## 1. clone this repository on a docker enabled linux machine.
 
-git clone https://github.com/nashpaz123/jenkins-pipeline-with-docker.git
+**git clone https://github.com/nashpaz123/jenkins-pipeline-with-docker.git**
 
 ## 2. Navigate to the directory "jenkins-pipeline-with-docker" and run the below docker command to setup Jenkins, Sonarqube and Tomcat containers.
 Prerequisites: install docker-compose: https://docs.docker.com/compose/install/ 
@@ -24,28 +24,28 @@ e.g:
 
 <sub>sudo chmod +x /usr/local/bin/docker-compose</sub>
 
-cd jenkins-pipeline-with-docker/
+**cd jenkins-pipeline-with-docker/**
 
-sudo docker-compose up -d
+**sudo docker-compose up -d**
 
 ## 3. To view all the running containers run the below command
 
-sudo docker-compose ps
+**sudo docker-compose ps**
     
 Configure the "Jenkins" instance:
 ## 4. Navigate to the below URL to connect to your Jenkins instance.
 http://localhost:8080
-To get initial admin password run:
+To get the initial admin password run:
 
-sudo docker-compose exec --user root jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+**sudo docker-compose exec --user root jenkins cat /var/jenkins_home/secrets/initialAdminPassword**
 
 Install Jenkins suggested plugins, create the Admin user.
 
 ## 5. Install maven for use in the project:
 
-sudo docker-compose exec --user root jenkins apt-get update
+**sudo docker-compose exec --user root jenkins apt-get update**
 
-sudo docker-compose exec --user root jenkins apt-get -y install maven
+**sudo docker-compose exec --user root jenkins apt-get -y install maven**
 
 ## 6. Go to Manage Jenkins → Manage plugins and 
 Install the plugins "Deploy to container" and "Copy Artifact Plugin" from the "Available" which are required for the project. These plugins are used to copy the artifacts from the upstream job and deploy to the Tomcat server.
