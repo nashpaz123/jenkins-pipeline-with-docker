@@ -82,7 +82,7 @@ Please make sure that the name of the job matches the one mentioned in the Jenki
 https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/Jenkinsfile
 
 ## 4. Configure
-the General section and select "This build is parameterized" and add the variable as below. Select "String Parameter" as the parameter type and enter the name of the parameter as "BRANCH_NAME" and the default value as MainDev. We specify the variable to copy the artifact from the correct branch.
+the General section and select "This build is parameterized" and add the variable as below. Select "String Parameter" as the parameter type and enter the name of the parameter as "BRANCH_NAME" and the default value as develop . We specify the variable to copy the artifact from the correct branch.
 
 ## 5. Configure the build step
 of the project to copy the artifact from the upstream project. Enter the name of the artiffact to be copied as "gameoflife-web/target/gameoflife.war"
