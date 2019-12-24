@@ -34,7 +34,8 @@ e.g:
     
 Configure the "Jenkins" instance:
 ## 4. Navigate to the below URL to connect to your Jenkins instance.
-http://localhost:8080
+Open http://<ip address>:8080 in a browser.
+
 To get the initial admin password run:
 
 **sudo docker-compose exec --user root jenkins cat /var/jenkins_home/secrets/initialAdminPassword**
