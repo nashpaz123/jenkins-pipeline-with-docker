@@ -61,11 +61,13 @@ create the Admin user, user: 'admin' , password 'admin'.
 On the top right of the screen, click Manage Jenkins → Manage plugins. From the "Available" tab ( or go to http://IP_ADDRESS:8080/pluginManager/available ), install the plugins "Deploy to container" and "Copy Artifact Plugin", they are required for the project. These plugins are used to copy the artifacts from the upstream job and deploy it to the Tomcat server.
 
 ## 7. Add 
-label "jenkins" on the master server.  Go to Manage Jenkins → Manage Nodes and confligure the master node. We add the label as we'll restrict the stages to run on the agents with the label "jenkins" in the Jenkinsfile.
+label "jenkins" on the master server. Go to Manage Jenkins → Manage Nodes and configure the master node (or go to http://IP_ADDRESS:8080/computer/(master)/configure ). in the 'Labels' field add the text: jenkins 
+
+We add the label as we'll restrict the stages to run on the agents with the label "jenkins" in the Jenkinsfile.
 
 Setup Jenkins Project:
-## 1. Go to Jenkins and
-click on "New item". Enter the job name as  "GameofLife_pipeline". Select the "Multibranch Pipeline" as the Project type and click on "OK"
+## 1. Setup Jenkins Project:
+In the main Jenkins menu, click on "New item". Enter the job name as  "GameofLife_pipeline". Select the "Multibranch Pipeline" as the Project type and click on "OK"
 
 ## 2. Under
 Branch Sources, configure the Git repository. We will be using the repo "jenkins-pipeline-with-docker" which has already been created for the project.  Select "GIT" from the dropdown and 
