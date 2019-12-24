@@ -15,7 +15,7 @@ To begin ,
 
 **git clone https://github.com/nashpaz123/jenkins-pipeline-with-docker.git**
 
-## 2. Navigate to the directory "jenkins-pipeline-with-docker" and run the below docker command to setup Jenkins, Sonarqube and Tomcat containers.
+## 2. Navigate to the directory "jenkins-pipeline-with-docker" and run the below docker command to setup Jenkins, Sonarqube and Tomcat containers. (5-10 minutes)
 Prerequisites: install docker-compose: https://docs.docker.com/compose/install/ 
 
 e.g:
@@ -33,14 +33,23 @@ e.g:
 **sudo docker-compose ps**
     
 Configure the "Jenkins" instance:
-## 4. Navigate to the below URL to connect to your Jenkins instance.
+## 4. Navigate to the below URL to connect to your Jenkins instance. (10-15 minutes)
 Open http://IP_ADDRESS:8080 in a browser.
 
 To get the initial admin password run:
 
 **sudo docker-compose exec --user root jenkins cat /var/jenkins_home/secrets/initialAdminPassword**
 
-Install Jenkins suggested plugins, create the Admin user.
+Install Jenkins suggested plugins, 
+
+(If you run into this issue: An error occurred during installation: No such plugin: cloudbees-folder ,
+restart by running:
+
+<sub>sudo docker-compose down</sub>
+
+<sub>sudo docker-compose up -d</sub>
+
+create the Admin user, user: 'admin' , password 'admin'.
 
 ## 5. Install maven for use in the project:
 
