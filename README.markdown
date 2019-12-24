@@ -57,8 +57,8 @@ create the Admin user, user: 'admin' , password 'admin'.
 
 **sudo docker-compose exec --user root jenkins apt-get -y install maven**
 
-## 6. Go to Manage Jenkins → Manage plugins and 
-Install the plugins "Deploy to container" and "Copy Artifact Plugin" from the "Available" which are required for the project. These plugins are used to copy the artifacts from the upstream job and deploy to the Tomcat server.
+## 6. Install the plugins "Deploy to container" and "Copy Artifact Plugin" 
+On the top right of the screen, under Manage Jenkins → Manage plugins, from the "Available" tab, install the plugins "Deploy to container" and "Copy Artifact Plugin", they are required for the project. These plugins are used to copy the artifacts from the upstream job and deploy it to the Tomcat server.
 
 ## 7. Add 
 label "jenkins" on the master server.  Go to Manage Jenkins → Manage Nodes and confligure the master node. We add the label as we restrict the stages to run on the agents with the label "jenkins" in the JenkinsFile.
