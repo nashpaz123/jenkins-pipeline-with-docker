@@ -4,7 +4,7 @@ The project is a simple multi-module Maven project. To build the whole project, 
 
 ## Running the game
 
-The application is a very simple online version of [Conway's 'game of life'](http://en.wikipedia.org/wiki/Conway's_Game_of_Life). To see what the game does, run `mvn install` as described above, thengo to the gameoflife-web directory and run `mvn jetty:run`. The application will be running on http://IP_ADDRESS:9090.
+The application is a very simple online version of [Conway's 'game of life'](http://en.wikipedia.org/wiki/Conway's_Game_of_Life). To see what the game does, run `mvn install` as described above, thengo to the gameoflife-web directory and run `mvn jetty:run`. The application will be running on http://IP_ADDRESS:10000/gameoflife/
 
 ## Running the acceptance tests
 
@@ -26,7 +26,7 @@ e.g:
 
 **cd jenkins-pipeline-with-docker/**
 
-**sudo docker-compose up -d**
+**sudo /usr/local/bin/docker-compose up -d**
 
 ## 3. To view all the running containers run the below command
 
@@ -81,19 +81,37 @@ click on "New item" and create a job called "Tomcat deploy to Integration".  Sel
 Please make sure that the name of the job matches the one mentioned in the Jenkinsfile stage 'Deploy to Integration':
 https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/Jenkinsfile
 
-## 4. Configure
-the General section and select "This build is parameterized" and add the variable as below. Select "String Parameter" as the parameter type and enter the name of the parameter as "BRANCH_NAME" and the default value as MainDev. We specify the variable to copy the artifact from the correct branch.
+## 4. Configure the General section
+In the General section select "This build is parameterized" and add the variable as below. Select "String Parameter" as the parameter type and enter the name of the parameter as "BRANCH_NAME" and the default value as develop . We specify the variable to copy the artifact from the correct branch.
 
-## 5. Configure the build step
-of the project to copy the artifact from the upstream project. Enter the name of the artiffact to be copied as "gameoflife-web/target/gameoflife.war"
+![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/general.png)
+
+## 5. Configure the Build step
+In the Build section select 'Copy artifacts from another project', and set the project name: 'GameofLife_pipeline/${BRANCH_NAME}' , and Which Build to: 'Upstreab build that triggered this job' to copy the artifact from the upstream project. Enter the name of the Artifacts to be copied as: "gameoflife-web/target/gameoflife.war"
+
+![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/build.png)
 
 ## 6. Add 
-the post-build step tp deploy to the Tomcat container and save the changes. Add the admin credentials for Tomcat and select it from the dropdown. Enter the context path and the Tomcat URL as "http://tomcat:8080"
+the post-build step 'Deploy war to container' tp deploy to the Tomcat container and save the changes.
+
+set files to: \**/*.war
+
+context path to: /gameoflife
+
+Containers: choose 'Tomcat 6.x' from the dropdown
+
+Add the admin credentials for Tomcat (press the 'add' button next to Credentials. user: admin , pass: admin) and select it from the Credentials dropdown. 
+
+Enter the Tomcat URL as "http://tomcat:8080"
+
+![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/post.png)
 
 ## 7. After these jobs are created, 
-you should see a build running on the master branch. If the build is not started automatically, you can manually click "Scan multipbranch pipeline Now".
+you should see a build running on the master branch of the "GameofLife_pipeline" job. If the build is not triggered automatically, you can manually click "Scan multipbranch pipeline Now".
 
 ## 8. View Build Results
-Once the build is completed, you can navigate  to the URL "http://IP_ADDRESS:9000" to view the sonar scan results and browse the application using the URL : http://localhost:10000/gameoflife/
+Once the build is completed, you can navigate  to the URL "http://IP_ADDRESS:9000" to view the sonar scan results and browse the application using the URL : http://IP_ADDRESS:10000/gameoflife/
 
-In Jenkins, Stage View provides extended visualization of Pipeline build history on the index page of a flow project . This represents the stages which are configured in the Jenkins Pipeline.
+In Jenkins, Stage View provides extended visualization of Pipeline build history on the index page of a flow project. This represents the stages that are configured in the Jenkins Pipeline.
+
+optional: install the Jenkins plugin Blue Ocean and view the various branch runs in the Blue Ocean view.
