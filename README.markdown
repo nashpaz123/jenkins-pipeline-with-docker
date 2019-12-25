@@ -26,7 +26,7 @@ e.g:
 
 **cd jenkins-pipeline-with-docker/**
 
-**sudo docker-compose up -d**
+**sudo /usr/local/bin/docker-compose up -d**
 
 ## 3. To view all the running containers run the below command
 
