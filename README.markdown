@@ -1,5 +1,5 @@
 ## Prerequisites
-a linux (preferably Centos) machine with git, docker and docker-compose installed
+A linux (preferably Centos) machine with git, docker and docker-compose installed
 
 ## Building the project
 
