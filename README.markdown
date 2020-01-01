@@ -1,3 +1,6 @@
+## Prerequisites
+a linux (preferably Centos) machine with git, docker and docker-compose installed
+
 ## Building the project
 
 The project is a simple multi-module Maven project. To build the whole project, just run `mvn install` from the root directory.
