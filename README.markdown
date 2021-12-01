@@ -77,6 +77,7 @@ click on "New item". Enter the job name as "GameofLife_pipeline". Select the "Mu
 Branch Sources, configure the Git repository. We will be using the repo "jenkins-pipeline-with-docker" which has already been created for the project.  Select "GIT" from the dropdown and 
 
 enter the project repository as: https://github.com/nashpaz123/jenkins-pipeline-with-docker.git
+and save.
 
 ## 3. Navigate  to jenkins and
 click on "New item" and create a job called "Tomcat deploy to Integration".  Select the "Freestyle project" as the item type and click on "OK". This is the Jenkins job to deploy the built artifact on the tomcat container.
@@ -85,17 +86,17 @@ Please make sure that the name of the job matches the one mentioned in the Jenki
 https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/Jenkinsfile
 
 ## 4. Configure the General section
-In the General section select "This build is parameterized" and add the variable as below. Select "String Parameter" as the parameter type and enter the name of the parameter as "BRANCH_NAME" and the default value as develop . We specify the variable to copy the artifact from the correct branch.
+In the General section select "This build is parameterized" and add the variable as below. Select "String Parameter" as the parameter type and enter the name of the parameter as "BRANCH_NAME" and the default value as **develop** . We specify the variable to copy the artifact from the correct branch.
 
 ![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/general.png)
 
 ## 5. Configure the Build step
-In the Build section select 'Copy artifacts from another project', and set the project name: 'GameofLife_pipeline/${BRANCH_NAME}' , and Which Build to: 'Upstreab build that triggered this job' to copy the artifact from the upstream project. Enter the name of the Artifacts to be copied as: "gameoflife-web/target/gameoflife.war"
+In the Build section select 'Copy artifacts from another project', and set the project name: 'GameofLife_pipeline/${BRANCH_NAME}' , and Which Build to: 'Upstream build that triggered this job' to copy the artifact from the upstream project. Enter the name of the Artifacts to be copied as: "gameoflife-web/target/gameoflife.war" and save.
 
 ![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/build.png)
 
 ## 6. Add 
-the post-build step 'Deploy war to container' tp deploy to the Tomcat container and save the changes.
+the post-build step 'Deploy war to container' to deploy to the Tomcat container and save the changes.
 
 set files to: \**/*.war
 
