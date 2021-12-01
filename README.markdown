@@ -41,27 +41,27 @@ Open http://IP_ADDRESS:8080 in a browser.
 
 To get the initial admin password run:
 
-**sudo docker-compose exec --user root jenkins cat /var/jenkins_home/secrets/initialAdminPassword**
+**docker-compose exec --user root jenkins cat /var/jenkins_home/secrets/initialAdminPassword**
 
 Install Jenkins suggested plugins, 
 
 <sub>(If you run into this issue: An error occurred during installation: No such plugin: cloudbees-folder ,
 restart by running:</sub>
 
-<sub>sudo docker-compose down</sub>
+<sub>docker-compose down</sub>
 
-<sub>sudo docker-compose up -d</sub>
+<sub>docker-compose up -d</sub>
 
 create the Admin user, user: 'admin' , password 'admin'.
 
 ## 5. Install maven for use in the project: (This may take up to 5 minutes)
 
-**sudo docker-compose exec --user root jenkins apt-get update**
+**docker-compose exec --user root jenkins apt-get update**
 
-**sudo docker-compose exec --user root jenkins apt-get -y install maven**
+**docker-compose exec --user root jenkins apt-get -y install maven**
 
 ## 6. Install the plugins "Deploy to container" and "Copy Artifact Plugin" 
-On the top right of the screen, click Manage Jenkins → Manage plugins. From the "Available" tab ( or go to http://IP_ADDRESS:8080/pluginManager/available ), install the plugins "Deploy to container" and "Copy Artifact Plugin", they are required for the project. These plugins are used to copy the artifacts from the upstream job and deploy it to the Tomcat server.
+On the top right of the screen, click Manage Jenkins → Manage plugins. From the "Available" tab ( or go to http://IP_ADDRESS:8080/pluginManager/available ), install the plugins "Deploy to container" and "Copy Artifact" Plugins, they are required for the project. These plugins are used to copy the artifacts from the upstream job and deploy it to the Tomcat server.
 
 ## 7. Add 
 label "jenkins" on the master server. Go to Manage Jenkins → Manage Nodes and configure the master node (or go to http://IP_ADDRESS:8080/computer/(master)/configure ). in the 'Labels' field add the text: jenkins , then save.
