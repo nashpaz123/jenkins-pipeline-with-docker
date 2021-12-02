@@ -11,18 +11,14 @@ The application is a very simple online version of [Conway's 'game of life'](htt
 The acceptance tests are written using Webdriver and [Thucydides](http://thucydides.info). They are designed to run against a running server. Run the jetty instance as described about, then, in another window, go to the gameoflife-acceptance-tests directory and run `mvn clean verify`. The test reports will be generated in the `target/site/thucydides` directory.
 
 To begin , 
-## 1. clone this repository on a docker enabled linux machine.
+change your user to 'root' by running 
+**sudo su -**
+
+## 1. As the 'root' user, clone this repository on a docker enabled linux machine.
 
 **git clone https://github.com/nashpaz123/jenkins-pipeline-with-docker.git**
 
 ## 2. Navigate to the directory "jenkins-pipeline-with-docker" and run the below docker command to setup Jenkins, Sonarqube and Tomcat containers. (This may take up to 5-10 minutes)
-Prerequisites: install docker-compose: https://docs.docker.com/compose/install/ 
-
-e.g:
-
-<sub>sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</sub>
-
-<sub>sudo chmod +x /usr/local/bin/docker-compose</sub>
 
 **cd jenkins-pipeline-with-docker/**
 
