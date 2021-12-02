@@ -94,7 +94,7 @@ Containers: choose 'Tomcat 6.x' from the dropdown
 
 Add the admin credentials for Tomcat (press the 'add' button next to Credentials. user: admin , pass: admin) and select it from the Credentials dropdown. 
 
-Enter the Tomcat URL as "http://tomcat:8080"
+Enter the Tomcat URL as http://tomcat:8080
 
 ![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/post.png)
 
