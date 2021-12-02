@@ -2,9 +2,7 @@ pipeline {
     agent any 
     stages {
         stage('Build and Test') {
-            agent { node{
-                       label "jenkins"}
-            } 
+            agent any
             steps {
                 sh 'mvn clean package'
                 sh 'echo "build ran"'
@@ -14,9 +12,7 @@ pipeline {
         }
         
         stage ('Sonar Analysis') {
-            agent {node{
-                   label "jenkins"}
-            }
+            agent any
             steps {
                 sh 'echo "running sonar analysis"'
                 sh "mvn sonar:sonar -Dsonar.host.url=http://sonarqube:9000 -Dsonar.branch=${env.BRANCH_NAME}"
@@ -24,10 +20,8 @@ pipeline {
         }
         
         stage ('Deploy to Integration') {
-            when { branch 'master' }
-            agent {node{
-                   label "jenkins"}
-            }
+            when { branch 'tester' }
+            agent any
             steps {
                 input message: 'Shall we deploy? (Click "Proceed" to continue)'
                 build job:'../Tomcat deploy to Integration' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
