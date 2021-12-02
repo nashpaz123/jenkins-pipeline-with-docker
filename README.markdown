@@ -92,14 +92,14 @@ In the General section select "This build is parameterized" and add the variable
 ![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/general.png)
 
 ## 5. Configure the Build step
-In the Build section select 'Copy artifacts from another project', and set the project name: 'GameofLife_pipeline/${BRANCH_NAME}' , and Which Build to: 'Upstream build that triggered this job' to copy the artifact from the upstream project. Enter the name of the Artifacts to be copied as: "gameoflife-web/target/gameoflife.war" and save.
+In the Build section select 'Copy artifacts from another project', and set the project name: **GameofLife_pipeline/${BRANCH_NAME}** , and Which Build to: 'Upstream build that triggered this job' to copy the artifact from the upstream project. Enter the name of the Artifacts to be copied as: **gameoflife-web/target/gameoflife.war** and save.
 
 ![Image description](https://github.com/nashpaz123/jenkins-pipeline-with-docker/blob/master/build.png)
 
 ## 6. Add 
 the post-build step 'Deploy war to container' to deploy to the Tomcat container and save the changes.
 
-set files to: \**/*.war
+set files to: \'**/*.war'
 
 context path to: /gameoflife
 
