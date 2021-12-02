@@ -1,9 +1,6 @@
 ## Prerequisites
 A linux (preferably Centos) machine with git, docker and docker-compose installed
-
-## Building the project
-
-The project is a simple multi-module Maven project. To build the whole project, just run `mvn install` from the root directory.
+See: https://gist.github.com/npearce/6f3c7826c7499587f00957fee62f8ee9
 
 ## Running the game
 
@@ -29,11 +26,11 @@ e.g:
 
 **cd jenkins-pipeline-with-docker/**
 
-**sudo /usr/local/bin/docker-compose up -d**
+**docker-compose up -d**
 
 ## 3. To view all the running containers run the below command
 
-**sudo docker-compose ps**
+**docker-compose ps**
     
 Configure the "Jenkins" instance:
 ## 4. Navigate to the below URL to connect to your Jenkins instance. (This may take up to 10-15 minutes)
@@ -45,14 +42,7 @@ To get the initial admin password run:
 
 Install Jenkins suggested plugins, 
 
-<sub>(If you run into this issue: An error occurred during installation: No such plugin: cloudbees-folder ,
-restart by running:</sub>
-
-<sub>docker-compose down</sub>
-
-<sub>docker-compose up -d</sub>
-
-create the Admin user, user: 'admin' , password 'admin'.
+create the Admin user, user: **admin** , password **admin** , email: **admin@admin.admin**
 
 ## 5. Install maven for use in the project: (This may take up to 5 minutes)
 
