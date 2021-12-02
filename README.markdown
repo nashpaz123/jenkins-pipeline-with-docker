@@ -101,7 +101,10 @@ Enter the Tomcat URL as http://tomcat:8080
 ## 7. After these jobs are created, 
 you should see a build running on the master branch of the "GameofLife_pipeline" job. If the build is not triggered automatically, you can manually click "Scan multipbranch pipeline Now".
 
-## 8. View Build Results
+## 8. Approve deployment of the artifact to the web server
+Under the GameofLife_pipeline -> master job, in Stage view, the last stage "Deploy to Integration" is paused for user input. Click the gray square and click "Proceed" to actually start the stage, that starts the "Tomcat deploy to Integration" job.
+
+## 9. View Build Results
 Once the build is completed, you can navigate  to the URL "http://IP_ADDRESS:9000" to view the sonar scan results and browse the application using the URL : http://IP_ADDRESS:10000/gameoflife/
 
 In Jenkins, Stage View provides extended visualization of Pipeline build history on the index page of a flow project. This represents the stages that are configured in the Jenkins Pipeline.
