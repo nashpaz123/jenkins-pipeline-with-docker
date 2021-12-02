@@ -64,6 +64,7 @@ click on "New item". Enter the job name as "GameofLife_pipeline". Select the "Mu
 Branch Sources, configure the Git repository. We will be using the repo "jenkins-pipeline-with-docker" which has already been created for the project.  Select "GIT" from the dropdown and 
 
 enter the project repository as: https://github.com/nashpaz123/jenkins-pipeline-with-docker.git
+
 and save.
 
 ## 3. Navigate  to jenkins and
