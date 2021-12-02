@@ -106,4 +106,5 @@ Once the build is completed, you can navigate  to the URL "http://IP_ADDRESS:900
 
 In Jenkins, Stage View provides extended visualization of Pipeline build history on the index page of a flow project. This represents the stages that are configured in the Jenkins Pipeline.
 
-optional: install the Jenkins plugin Blue Ocean and view the various branch runs in the Blue Ocean view.
+extra: install the Jenkins plugin Blue Ocean and view the various branch runs and tests in the Blue Ocean view.
+extra extra: install the Jenkins plugin Jacoco and view the test results in the Tests result view.
