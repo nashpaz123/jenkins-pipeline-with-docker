@@ -20,7 +20,7 @@ pipeline {
         }
         
         stage ('Deploy to Integration') {
-            when { branch 'master' }
+            when { branch 'tester' }
             agent any
             steps {
                 input message: 'Shall we deploy? (Click "Proceed" to continue)'
